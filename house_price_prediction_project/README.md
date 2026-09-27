@@ -1,87 +1,95 @@
-# 🏡 Indian House Price Prediction
+# 🏡 House Price Prediction
 
-A Machine Learning web application that predicts the estimated price of residential properties in India based on property features such as location, property type, area, BHK, bathrooms, floor details, furnishing, and nearby facilities.
-
-The project includes data preprocessing, feature engineering, model evaluation, and an interactive web application built with Streamlit.
-
-## 🚀 Live Demo
-
-**Try the application:**
-[House Price Prediction – Live App](https://house-price-project-69eevgslroucvss3xbc.streamlit.app/)
+A Machine Learning web application that predicts the estimated sale price of residential properties in India based on property characteristics such as location, area, BHK, bathrooms, property age, and amenities.
 
 ## 📌 Project Overview
 
-House prices vary depending on location, property size, property type, age, and other factors. This project uses historical housing data to train a regression model that estimates a property's price from the details provided by the user.
+House prices depend on several factors, including location, property size, building characteristics, and nearby facilities.
 
-### Objectives
+This project uses machine learning regression algorithms to learn patterns from historical housing data and estimate property prices. The application provides a simple interface where users can enter property details and receive a predicted price in Indian rupees lakhs.
 
-* Analyze and preprocess housing data.
-* Create useful features for prediction.
-* Train and compare regression models.
-* Evaluate model performance using suitable regression metrics.
-* Build an interactive prediction interface.
-* Deploy the application online using Streamlit Community Cloud.
+## 🎯 Objectives
+
+* Perform data cleaning and exploratory data analysis (EDA).
+* Handle missing values and analyze outliers.
+* Perform feature engineering.
+* Preprocess numerical and categorical features.
+* Train and compare machine learning regression models.
+* Evaluate models using MAE, RMSE, and R².
+* Save the trained model pipeline.
+* Deploy an interactive prediction application.
 
 ## ✨ Features
 
-* Enter property details through a user-friendly interface.
-* Select the city, locality type, and property type.
-* Specify BHK, bathrooms, and property area.
-* Provide additional property characteristics.
-* Get an estimated property price.
-* Access the application through a public web link.
+* Interactive property input form.
+* Property location and type selection.
+* Support for BHK, bathrooms, and area details.
+* Consideration of floor, age, and furnishing.
+* Property amenities and accessibility features.
+* Machine learning-based price estimation.
+* Web interface built using Streamlit.
 
-## 🧰 Tech Stack
+## 🧰 Technologies Used
 
-| Technology                | Purpose                                 |
-| ------------------------- | --------------------------------------- |
-| Python                    | Programming language                    |
-| Pandas & NumPy            | Data processing                         |
-| Scikit-learn              | Machine Learning and preprocessing      |
-| Matplotlib & Seaborn      | Exploratory data analysis               |
-| Streamlit                 | Web application                         |
-| Joblib                    | Saving and loading the trained model    |
-| Git & GitHub              | Version control and source code hosting |
-| Streamlit Community Cloud | Deployment                              |
-
-## 🤖 Machine Learning
-
-This project uses a regression approach to estimate house prices.
-
-The model-comparison process included:
-
-* HistGradientBoosting Regressor
-* Extra Trees Regressor
-* Random Forest Regressor
-
-The deployed application currently loads the **Extra Trees** model.
-
-Model performance is evaluated using:
-
-* **MAE:** Mean Absolute Error
-* **RMSE:** Root Mean Squared Error
-* **R²:** Coefficient of Determination
-
-These metrics measure prediction error and how well the model explains variation in the target values. R² is not classification accuracy.
+| Technology   | Purpose                            |
+| ------------ | ---------------------------------- |
+| Python       | Programming language               |
+| Pandas       | Data manipulation                  |
+| NumPy        | Numerical operations               |
+| Scikit-learn | Machine learning and preprocessing |
+| Matplotlib   | Data visualization                 |
+| Seaborn      | Exploratory data analysis          |
+| Joblib       | Model serialization                |
+| Streamlit    | Web application                    |
+| Git & GitHub | Version control                    |
 
 ## 📊 Dataset
 
-The project uses housing data containing property characteristics and the target variable `Price_INR_Lakhs`.
-
-Features include:
+The dataset contains residential property information, including:
 
 * City and locality type
 * Property type
-* Number of bedrooms (BHK) and bathrooms
+* BHK and bathrooms
 * Super area and carpet area
 * Floor number and total floors
-* Property age and furnishing status
-* Parking, lift, and gated community availability
+* Age of property
+* Furnishing status
+* Parking and lift availability
+* Gated community
 * Distance to metro and city centre
 
-The target variable is **`Price_INR_Lakhs`**, representing the property price in lakhs of Indian rupees.
+**Target variable:** `Price_INR_Lakhs`
 
-> The dataset is not included in this repository by default. Ensure you have the right to share any dataset before publishing it.
+The target represents the property price in lakhs of Indian rupees.
+
+## 🔍 Project Workflow
+
+1. **Data collection:** Load the housing dataset.
+2. **Data cleaning:** Inspect data types, missing values, and inconsistencies.
+3. **Exploratory data analysis:** Analyze distributions, relationships, and outliers.
+4. **Feature engineering:** Create additional features from existing property details.
+5. **Preprocessing:** Impute missing values, scale numerical features, and encode categorical features.
+6. **Model training:** Train regression algorithms.
+7. **Model comparison:** Compare validation results and tune hyperparameters.
+8. **Evaluation:** Assess performance using regression metrics.
+9. **Model saving:** Save the trained pipeline using Joblib.
+10. **Deployment:** Use Streamlit to provide predictions through a web interface.
+
+## 🤖 Machine Learning Models
+
+The project compares the following regression models:
+
+* Random Forest Regressor
+* Extra Trees Regressor
+* HistGradientBoosting Regressor
+
+The deployed application currently loads the **Extra Trees** model.
+
+## 📈 Evaluation Metrics
+
+* **MAE (Mean Absolute Error):** Measures the average absolute difference between actual and predicted prices.
+* **RMSE (Root Mean Squared Error):** Measures prediction error while penalizing larger errors more heavily.
+* **R² Score:** Measures how much variation in the target prices is explained by the model relative to a mean-prediction baseline.
 
 ## 📁 Project Structure
 
@@ -89,69 +97,70 @@ The target variable is **`Price_INR_Lakhs`**, representing the property price in
 house-price-project/
 └── house_price_prediction_project/
     ├── app.py
-    ├── train_models.py
     ├── requirements.txt
     ├── README.md
-    ├── .gitignore
     └── models/
         └── house_price_prediction_pipeline.joblib
 ```
 
-## ⚙️ Run Locally
+## ⚙️ Run the Project Locally
 
 ### 1. Clone the repository
 
 ```bash
 git clone https://github.com/Megha2407/house-price-project.git
-cd house-price-project/house_price_prediction_project
+cd house-price-project
 ```
 
-### 2. Create and activate a virtual environment
+### 2. Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+### 3. Activate the environment
 
 **Windows PowerShell:**
 
 ```powershell
-python -m venv .venv
 .\.venv\Scripts\Activate.ps1
 ```
 
-### 3. Install dependencies
+### 4. Install dependencies
 
 ```bash
-python -m pip install -r requirements.txt
+pip install -r house_price_prediction_project/requirements.txt
 ```
 
-### 4. Run the Streamlit app
+### 5. Run the application
 
 ```bash
-streamlit run app.py
+streamlit run house_price_prediction_project/app.py
 ```
 
 The application will open in your browser, usually at `http://localhost:8501`.
 
-## ☁️ Deployment
+## 📚 Reference
 
-The application is deployed using Streamlit Community Cloud and connected to this GitHub repository.
+* [HTML Anchor Element — MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a)
 
-The deployed app loads the saved model pipeline and uses it to generate predictions from user-provided property details.
+## 🔮 Future Enhancements
 
-## 🔮 Future Improvements
-
-* Add more housing data from different Indian cities.
-* Improve model performance through further feature engineering and tuning.
-* Display comparable properties and price ranges.
-* Add interactive visualizations of housing trends.
-* Improve model monitoring and retraining workflows.
+* Expand the dataset with more recent housing records.
+* Improve model performance through additional feature engineering.
+* Add interactive price and location visualizations.
+* Incorporate more detailed locality information.
+* Monitor prediction errors and retrain the model when needed.
 
 ## 👩‍💻 Author
 
 **Megha Mithra B**
 
 B.E. Computer Science and Engineering
-Artificial Intelligence & Machine Learning
+Artificial Intelligence and Machine Learning
 
-GitHub: [@Megha2407](https://github.com/Megha2407)
+GitHub: [Megha2407](https://github.com/Megha2407)
 
----
+## ⚠️ Disclaimer
 
-*This project was developed for learning and educational purposes. Predictions are estimates and should not be treated as official property valuations or financial advice.*
+This application provides estimated property prices based on patterns learned from the training dataset. Actual market prices may vary depending on location, property condition, market trends, and other factors. Predictions should not be considered official property valuations.
